@@ -4,18 +4,17 @@ public class Q52_NQueen2 {
     static boolean[] diag;
     static boolean[] adiag;
 
-    public static int nqueen_Combination(int n, int m, int tnq, int idx) {
+    public static int nqueen_Combination(int floor, int tnq, int m) {
         if (tnq == 0) {
             return 1;
         }
-
         int count = 0;
-        for (int i = idx; i < n * m; i++) {
-            int r = i / m;
-            int c = i % m;
-            if (!rows[r] && !cols[c] && !diag[r + c] && !adiag[r - c + m - 1]) {
+        for (int room = 0; room < m; room++) {
+            int r = floor;
+            int c = room;
+            if (!rows[r] &&!cols[c] && !diag[r + c] && !adiag[r - c + m - 1]) {
                 rows[r] = cols[c] = diag[r + c] = adiag[r - c + m - 1] = true;
-                count += nqueen_Combination(n, m, tnq - 1, i + 1);
+                count += nqueen_Combination(floor + 1, tnq - 1, m);
                 rows[r] = cols[c] = diag[r + c] = adiag[r - c + m - 1] = false;
             }
         }
@@ -28,8 +27,9 @@ public class Q52_NQueen2 {
         cols = new boolean[m];
         diag = new boolean[n + m - 1];
         adiag = new boolean[n + m - 1];
-        return nqueen_Combination(n, m, n, 0);
+        return nqueen_Combination(0, n, n);
     }
+
 
     public static void main(String[] args) {
         int n = 4;
