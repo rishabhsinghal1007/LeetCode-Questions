@@ -1,4 +1,5 @@
 public class Q52_NQueen2 {
+
     static boolean[] rows;
     static boolean[] cols;
     static boolean[] diag;
@@ -12,7 +13,7 @@ public class Q52_NQueen2 {
         for (int room = 0; room < m; room++) {
             int r = floor;
             int c = room;
-            if (!rows[r] &&!cols[c] && !diag[r + c] && !adiag[r - c + m - 1]) {
+            if (!rows[r] && !cols[c] && !diag[r + c] && !adiag[r - c + m - 1]) {
                 rows[r] = cols[c] = diag[r + c] = adiag[r - c + m - 1] = true;
                 count += nqueen_Combination(floor + 1, tnq - 1, m);
                 rows[r] = cols[c] = diag[r + c] = adiag[r - c + m - 1] = false;
@@ -29,7 +30,6 @@ public class Q52_NQueen2 {
         adiag = new boolean[n + m - 1];
         return nqueen_Combination(0, n, n);
     }
-
 
     public static void main(String[] args) {
         int n = 4;
