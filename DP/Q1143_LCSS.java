@@ -1,4 +1,3 @@
-import java.io.*;
 import java.util.*;
 
 // LCSS : Longest Common SubSequnece
@@ -12,9 +11,9 @@ public class Q1143_LCSS {
             return dp[n][m];
 
         if (s1.charAt(n - 1) == s2.charAt(m - 1))
-            return dp[n][m] = LCSS(s1, s2, n - 1, m - 1, dp) + 1;
+            return dp[n][m] = LCSS_memo(s1, s2, n - 1, m - 1, dp) + 1;
         else
-            return dp[n][m] = Math.max(LCSS(s1, s2, n - 1, m, dp), LCSS(s1, s2, n, m - 1, dp));
+            return dp[n][m] = Math.max(LCSS_memo(s1, s2, n - 1, m, dp), LCSS_memo(s1, s2, n, m - 1, dp));
     }
 
     public static int LCSS_DP(String s1, String s2, int N, int M, int[][] dp) {
