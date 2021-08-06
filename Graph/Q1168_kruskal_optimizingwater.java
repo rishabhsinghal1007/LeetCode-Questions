@@ -1,4 +1,3 @@
-
 // There are n houses in a village. We want to supply water for all the houses by building wells and laying pipes.
 
 // For each house i, we can either build a well inside it directly with cost wells[i], or pipe in water from another well to it.
