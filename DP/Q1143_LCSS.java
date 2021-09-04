@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Arrays;
 
 // LCSS : Longest Common SubSequnece
 public class Q1143_LCSS {
@@ -35,11 +35,11 @@ public class Q1143_LCSS {
 
     public static int longestCommonSubsequence(String s1, String s2) {
         int n = s1.length(), m = s2.length();
-        
+
         int[][] dp = new int[n + 1][m + 1];
 
-        for (int[] d : dp)  // only for memo code.
-            Arrays.fill(d, -1);  
+        for (int[] d : dp) // only for memo code.
+            Arrays.fill(d, -1);
 
         // int ans = LCSS_memo(s1, s2, n, m, dp);
         int ans = LCSS_DP(s1, s2, n, m, dp);
