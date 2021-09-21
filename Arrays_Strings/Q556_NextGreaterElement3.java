@@ -41,6 +41,7 @@ class Solution {
     public String nextGreaterElement_(String str) {
         char[] arr = str.toCharArray();
         int dipIdx = dipIndex(arr);
+
         if (dipIdx == -1) {
             return "-1";
         }
@@ -48,6 +49,7 @@ class Solution {
         int ceilIndx = ceilIndex(arr, dipIdx);
         swap(arr, dipIdx, ceilIndx);
         reverse(arr, dipIdx + 1, arr.length - 1);
+
         return String.valueOf(arr);
     }
 
